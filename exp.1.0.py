@@ -6,7 +6,7 @@ import datetime
 from dateutil.relativedelta import relativedelta 
 
 
-st.sidebar.title("Exposure for General Aviation")
+st.sidebar.title("Exposure Tool for General Aviation")
 
 st.markdown(
 """
@@ -85,13 +85,13 @@ def date_cached(date_label, date_default, date_name):
         st.session_state[date_name] = st.session_state[cache1]
     
     elif cache2 in st.session_state:
-        value = st.date_input(date_label, value=st.session_state[cache2], format='DD/MM/YYYY', key=cache2)
+        value = st.date_input(date_label, value=st.session_state[cache2], format='DD/MM/YYYY', help= 'Automatically set to the first day of next month', key=cache2)
         st.session_state[date_name] = st.session_state[cache2]
 
     elif date_name in st.session_state:
         if cache1 not in st.session_state:
             st.session_state[cache1] = st.session_state[date_name]
-        value = st.date_input(date_label, value=st.session_state[cache1], format='DD/MM/YYYY', key=cache2)
+        value = st.date_input(date_label, value=st.session_state[cache1], format='DD/MM/YYYY', help= 'Automatically set to the first day of next month', key=cache2)
         st.session_state[date_name] = st.session_state[cache2]
 
 
